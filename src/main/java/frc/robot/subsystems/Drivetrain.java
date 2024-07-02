@@ -77,12 +77,12 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
-    double value = pid.calculate(m_leftEncoder.getDistance() - m_rightEncoder.getDistance());
-    double passValue = MathUtil.clamp(-value, -0.45, 0.45);
-    SmartDashboard.putNumber("Difference", m_leftEncoder.getDistance() - m_rightEncoder.getDistance());
-    SmartDashboard.putNumber("Arcade Value", passValue);
-    SmartDashboard.putNumber("PIDSetpoint", pid.getSetpoint());
-    m_diffDrive.arcadeDrive(xaxisSpeed, passValue);
+    // double value = pid.calculate(m_leftEncoder.getDistance() - m_rightEncoder.getDistance());
+    // double passValue = MathUtil.clamp(-value, -0.45, 0.45);
+    // SmartDashboard.putNumber("Difference", m_leftEncoder.getDistance() - m_rightEncoder.getDistance());
+    // SmartDashboard.putNumber("Arcade Value", passValue);
+    // SmartDashboard.putNumber("PIDSetpoint", pid.getSetpoint());
+    m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
   }
 
   public Command maintainDistanceCommand(double distance) {
